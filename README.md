@@ -27,7 +27,7 @@ This is more than a to-do app — it’s your personal win-list.
 
 | Light Mode | Dark Mode |
 |------------|-----------|
-| ![Light](screenshots/light-mode.png) | ![Dark](screenshots/dark-mode.png) |
+| ![Light](screenshots/light-mode.PNG) | ![Dark](screenshots/dark-mode.PNG) |
 
 ---
 
