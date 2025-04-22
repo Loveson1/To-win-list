@@ -38,8 +38,4 @@ This is more than a to-do app — it’s your personal win-list.
 - **JavaScript (Vanilla)**  
 - `localStorage` for data persistence
 
----
-
-## 📁 Folder Structure
-To-win-list/ │ ├── index.html ├── style.css ├── script.js ├── README.md
 
