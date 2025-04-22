@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="./Task Manager.css" />
+    <script src="Task Manager.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+    <html lang="en" data-theme="light"></html>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+          "
+        >
+          <h1 style="font-size: 25px; margin-bottom: 0px">To-Win-List</h1>
+          <button
+            id="toggle-theme"
+            style="font-size: 12px; text-align: center; padding: 10px 12px;"
+            class="button"
+          >
+            
+          </button>
+        </div>
+        <br />
+        <div class="input-wrapper">
+          <input type="text" placeholder="Task here" class="text" id="task" />
+          <button class="add" id="add">+</button>
+        </div>
+        <div>
+          <input type="button" value="Filter" class="button" id="filterBtn" />
+
+          <div id="filterMenu" class="hid">
+            <input type="button" value="All Task" class="button" id="all" />
+            <input type="button" value="Pending" class="button" id="pend" />
+            <input
+              type="button"
+              value="Completed"
+              class="button"
+              id="complete"
+            />
+          </div>
+
+          <input type="button" value="Clear" class="button" id="clear" />
+          <input type="button" value="Trash" class="button" id="trash" />
+        </div>
+
+        <ul id="taskList"></ul>
+        <p
+          id="emptyTask"
+          style="display: none; text-align: center; color: gray"
+        >
+          -- Add task. Lets win the day! --
+        </p>
+        <ul id="trashList" style="display: none"></ul>
+        <p id="empty" style="display: none; text-align: center; color: gray">
+          --Trash is empty--
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

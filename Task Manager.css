@@ -1,0 +1,395 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #6c5ce7; /* Light Purple */
+  --primary-dark-color: #5b4cd3; /* Dark Purple */
+  --background-light: #f1f1f1; /* Light background */
+  --background-dark: #2b2b2b; /* Dark background */
+  --text-light: #333; /* Dark text for light mode */
+  --text-dark: #f1f1f1; /* Light text for dark mode */
+}
+
+[data-theme="light"] {
+  --background: var(--background-light);
+  --text: var(--text-light);
+  --button-bg: #ebebeb;
+  --button-hover-bg: #e0e0e0;
+  --color: var(--primary-color);
+}
+
+[data-theme="dark"] {
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+  --button-bg: #333;
+  --button-hover-bg: #444;
+  --color: var(--primary-dark-color);
+}
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 90vh;
+  flex-direction: column;
+}
+
+#taskList,
+#trashList {
+  max-height: 60vh; /* or whatever fits your design */
+  overflow-y: auto;
+  padding-right: 0px; /* prevent scrollbar from hiding content */
+}
+
+
+#taskList::-webkit-scrollbar,
+#trashList::-webkit-scrollbar {
+  width: 0px;
+}
+
+#taskList::-webkit-scrollbar-thumb,
+#trashList::-webkit-scrollbar-thumb {
+  background: transparent ;
+  
+  
+}
+
+#taskList::-webkit-scrollbar-track,
+#trashList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--color);
+}
+
+input.text {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 45px;
+  padding: 0 50px 0 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.input-wrapper .add {
+  position: absolute;
+  right: 10px;
+  top: 38%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  /* background-color: var(--color); */
+  color: var(--color);
+  /* border: none; */
+  font-size: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-wrapper .add:hover {
+  background-color: var(--background);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+  max-width: 500px; /* Set a max-width for larger screens */
+  margin: auto;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1); /* Translucent background */
+  backdrop-filter: blur(10px); /* Blur the background behind the container */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  color: var(--text); /* Light text to contrast the background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for a subtle outline */
+  transition: backdrop-filter 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+[data-theme="dark"] .container {
+  background: rgba(18, 18, 18, 0.6); /* More neutral dark tone */
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.container:hover {
+  backdrop-filter: blur(15px); /* More blur on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.add,
+.button {
+  background-color: var(--button-bg);
+  color: var(--text);
+}
+
+.add:hover,
+.button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.button,
+.add,
+.container {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+.button {
+  padding: 10px 16px;
+  margin: 5px 4px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+#trash
+ {
+  margin-bottom: 50px;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+[data-theme="dark"] .button {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color);
+}
+
+[data-theme="dark"] .button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"],
+[data-theme="dark"] {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .input-wrapper input {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#filterMenu {
+  gap: 8px;
+  margin-top: -40px;
+  padding: 12px;
+  border-radius: 12px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: opacity 0.3s ease;
+}
+
+.hid {
+  display: none;
+}
+
+.hidden {
+  display: block;
+}
+
+#filterMenu input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-light);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#filterMenu input:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] #filterMenu {
+  background: rgba(20, 20, 20, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  border: 0px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] #filterMenu input {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+[data-theme="dark"] #filterMenu input:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#filterMenu {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+
+.theme-toggle {
+  position: fixed;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-dark);
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  color: var(--text);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+@media (max-width:600px){
+  .task-item{
+    display:block;
+  }
+}
+
+
+[data-theme="dark"] .task-item {
+  background: rgba(50, 50, 50, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.task-item:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.task-text {
+  flex: 1;
+  font-size: 16px;
+  padding-right: 10px;
+  word-break: break-word;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.task-btn {
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.task-btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.task-btn.complete {
+  color: var(--color);
+}
+
+.task-btn.delete {
+  color: #8d8b8b;
+}
+
+/* Optional: For restored tasks (from trash) */
+.task-btn.restore {
+  color: var(--color);
+}
+
+.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+#add {
+  border-color: var(--color);
+}
+
+
+
